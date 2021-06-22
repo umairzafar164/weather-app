@@ -1,10 +1,11 @@
 import React from "react";
 import { fetchTemp } from "./actions";
 import { connect } from "react-redux";
-var text = "";
+
 class SearchBar extends React.Component {
+  state = { text: "" };
   onSubmit = () => {
-    this.props.fetchTemp(text);
+    this.props.fetchTemp(this.state.text);
   };
   render() {
     
@@ -12,7 +13,7 @@ class SearchBar extends React.Component {
       <div>
         <div className="ui input focus">
           <input
-            onChange={(e) => (text = e.target.value)}
+            onChange={(e) => this.setState({ text: e.target.value })}
             type="text"
             placeholder="Enter City"
           />
@@ -28,6 +29,6 @@ class SearchBar extends React.Component {
   }
 }
 const mapStateToProps = (state) => {
-  return { temp: state.temperature.data.current.temperature };
+  return { temp: state.temperature};
 };
 export default connect(mapStateToProps, { fetchTemp })(SearchBar);

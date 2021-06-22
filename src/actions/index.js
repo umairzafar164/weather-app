@@ -7,5 +7,8 @@ export const fetchTemp = (text) => async (dispatch) => {
       query: text,
     },
   });
-  dispatch({ type: "Fetch_temp", payload: response });
+  dispatch({ type: "Fetch_temp", payload: response.data.current.temperature });
+  
 };
+
+

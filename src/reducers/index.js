@@ -6,4 +6,6 @@ const tempReducer = (state = null, action) => {
   }
   return state;
 };
+
 export default combineReducers({ temperature: tempReducer });
+
