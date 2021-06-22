@@ -1,11 +1,6 @@
 import { combineReducers } from "redux";
+import tempReducer from './temperatureReducer'
 
-const tempReducer = (state = null, action) => {
-  if (action.type === "Fetch_temp") {
-    return action.payload;
-  }
-  return state;
-};
 
 export default combineReducers({ temperature: tempReducer });
 

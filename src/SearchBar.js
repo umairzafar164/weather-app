@@ -8,7 +8,6 @@ class SearchBar extends React.Component {
     this.props.fetchTemp(this.state.text);
   };
   render() {
-    
     return (
       <div>
         <div className="ui input focus">
@@ -22,13 +21,15 @@ class SearchBar extends React.Component {
           </button>
         </div>
         <div>
-          <h1>The temperature is :{this.props.temp} </h1>
+          <h1>
+            The temperature is :{this.props.temp}
+          </h1>
         </div>
       </div>
     );
   }
 }
 const mapStateToProps = (state) => {
-  return { temp: state.temperature};
+  return { temp: state.temperature };
 };
 export default connect(mapStateToProps, { fetchTemp })(SearchBar);
