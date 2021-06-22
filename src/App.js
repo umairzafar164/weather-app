@@ -5,7 +5,6 @@ class App extends React.Component {
     return (
       <div>
         <SearchBar />
-        Current temperature is : 
       </div>
     );
   }
