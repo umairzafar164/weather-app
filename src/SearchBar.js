@@ -1,12 +1,14 @@
 import React from "react";
 import { fetchTemp } from "./actions";
 import { connect } from "react-redux";
+import Display from "./display";
 
 class SearchBar extends React.Component {
   state = { text: "" };
   onSubmit = () => {
     this.props.fetchTemp(this.state.text);
   };
+  
   render() {
     return (
       <div>
@@ -20,11 +22,7 @@ class SearchBar extends React.Component {
             Submit
           </button>
         </div>
-        <div>
-          <h1>
-            The temperature is :{this.props.temp}
-          </h1>
-        </div>
+        <Display city={this.state.text} temperature={this.props.temp} />
       </div>
     );
   }
@@ -33,3 +31,10 @@ const mapStateToProps = (state) => {
   return { temp: state.temperature };
 };
 export default connect(mapStateToProps, { fetchTemp })(SearchBar);
+
+     /*   <div>
+          <h1>
+            The temperature is :{this.props.temp}
+          </h1>
+        </div>
+        */
