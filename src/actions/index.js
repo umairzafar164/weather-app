@@ -8,7 +8,4 @@ export const fetchTemp = (text) => async (dispatch) => {
     },
   });
   dispatch({ type: "Fetch_temp", payload: response.data.current.temperature });
-  
 };
-
-

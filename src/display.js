@@ -1,10 +1,23 @@
 import React from "react";
 class Display extends React.Component {
   render() {
-    if (this.props.temperature) {
+    if (this.props.cities) {
       return (
         <div>
-          <h1>{`Temperature in ${this.props.city} is ${this.props.temperature}`}</h1>
+          <table class="ui celled table">
+            <thead>
+              <tr>
+                <th>City</th>
+                <th>Temperature</th>
+              </tr>
+            </thead>
+            <tbody>
+             {this.props.cities.map((city,index)=><tr>
+               <td>{city}</td>
+               <td>{this.props.temps[index]}</td>
+             </tr>)}
+            </tbody>
+          </table>
         </div>
       );
     }
